@@ -1,0 +1,25 @@
+{
+  "name": "jquery-slider",
+  "description": "This is a jquery plugin for form validate",
+  "author": {
+    "name": "Shifone",
+    "email": "shifone@yeah.net",
+    "homepage":"http://www.cuishifeng.cn"
+  },
+  "version": "1.0.0",
+  "baseDir":"../",
+  "licenses": {
+      "type": "Apache V2 License",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.4",
+    "grunt-contrib-copy":"~0.5.0",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-uglify": "~0.4.0",
+    "grunt-contrib-concat": "~0.4.0",
+    "grunt-contrib-cssmin": "~0.9.0",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-htmlmin":"~0.2.0"
+  }
+}

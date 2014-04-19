@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+    <head>
+        <title>jquery validate plugin demo</title>
+        <style>
+            label{display: inline-block;width: 100px;}
+            input[type="text"]{width: 200px;outline: none;}
+            .error{border-color: red;}
+            .test_error{color: red;margin-left: 10px;}
+        </style>
+    </head>
+
+    <body>
+        <form id="v_form" action="" >
+            <div><label for="">Name:</label><input type="text" name="user_name" ></div>
+            <div><label for="">Mobile:</label><input type="text" name="mobile"></div>
+            <div><label for="">Email:</label><input type="text" name="email"></div>
+            <div><label for="">Password:</label><input type="text" name="pass"></div>
+            <div><label for="">Re_pwd:</label><input type="text" name="pass2"></div>
+            <div>
+                <label for="">Favorite</label>
+                <input type="checkbox" name="favorite" value="0" > One 
+                <input type="checkbox" name="favorite" value="1"> Two
+                <input type="checkbox" name="favorite" value="2"> Three
+            </div>
+            <div>
+                <label for="">Sex</label>
+                <input type="radio" name="sex" value="0" checked="checked"> Man
+                <input type="radio" name="sex" value="1"> Woman
+            </div>
+            <div><button type="button" id="validate">validate</button></div>
+        </form>
+    </body>
+    
+
+    <script src="js/lib/jquery-1.11.0.min.js"></script>
+    <script src="js/lib/jquery.validate.min.js"></script>
+    <script>
+    $(function(){
+
+        $("#validate").click(function(){
+            var result =  $("#v_form").validate({
+                //custom error span class, default : error
+                err_class:"test_error",
+                //validate rules,if do not hava message field there will use default message
+                rules:{
+                    user_name : [{key:'not_empty',message:"Username is not empty"}],
+                    //mobile: [{key:'regex',args: '^(13[0-9]|15[0|3|6|7|8|9]|18[8|9])\\d{8}$',message:"error mobile formatter"} ],
+                    mobile :[{key:'mobile',message:'Mobile is error'}],
+                    email: [{key:'email',message:"Error formatter for email"}], 
+                    pass: [{key:'min_length',args: 4,message:"Please enter at least :value characters"} ],
+                    pass2: [{key:'matches',args: 'pass',message:"This field must equels to field pass"} ],
+                    favorite : [{key:'not_empty'}]
+                }
+                //user custom deal errors method,if do not hava there will append <span> after field
+                // ,show_error:function(errors){
+                //     console.log(errors);
+                // }
+                // ,clear_error:function(){
+                //     //custome clear error msg function if define  show_error function
+                // }
+            });
+
+           alert("validate result : " + result);
+
+        });
+
+        
+    });
+
+    </script>
+
+
+</html>
